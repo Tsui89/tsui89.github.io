@@ -1,0 +1,479 @@
+
+## Master+ETCD
+
+准备工作：
+
+```
+1. download dk8s.v1.5.7.tar.gz
+2. tar zxvf  dk8s.v1.5.7.tar.gz
+3. cp -r dk8s/local /root/
+4. export PATH=$PATH:/root/local/bin
+5. cd dk8s
+```
+注：
+
+1. 以下操作是ubuntu16 systemctl配置方式，ubuntu14请按照修改项修改script里面的启动脚本。
+2. 第3步需要在所有master/minion节点上执行。
+3. 以下所有kubectl命令都是在master上执行的。 
+
+### 搭建单节点etcd
+
+
+dk8s/master/etcd/etcd.service 内容如下：
+
+```
+[Unit]
+Description=Etcd Server
+After=network.target
+After=network-online.target
+Wants=network-online.target
+Documentation=https://github.com/coreos
+
+[Service]
+Type=notify
+WorkingDirectory=/var/lib/etcd/
+ExecStart=/root/local/bin/etcd \
+  --name=etcd-host0 \
+  --initial-advertise-peer-urls=http://192.168.56.135:2380 \
+  --listen-peer-urls=http://192.168.56.135:2380 \
+  --listen-client-urls=http://192.168.56.135:2379,http://127.0.0.1:2379 \
+  --advertise-client-urls=http://192.168.56.135:2379 \
+  --initial-cluster-token=etcd-cluster-0 \
+  --initial-cluster=etcd-host0=http://192.168.56.135:2380 \
+  --initial-cluster-state=new \
+  --data-dir=/var/lib/etcd
+Restart=on-failure
+RestartSec=5
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target
+
+```
+
+修改etcd ip地址之后,执行
+
+```
+mkdir /var/lib/etcd  #创建etcd data-dir
+cp dk8s/master/etcd/etcd.service /etc/systemctl/system/
+systemctl daemon-reload
+systemctl enable etcd
+systemctl start etcd
+```
+
+### 启动kube-apiserver
+
+dk8s/master/kube-apiserver/kube-apiserver.service 内容如下：
+
+```
+[Unit]
+Description=Kubernetes API Server
+Documentation=https://github.com/GoogleCloudPlatform/kubernetes
+After=network.target
+
+[Service]
+ExecStart=/root/local/bin/kube-apiserver \
+  --admission-control= \
+  --advertise-address=192.168.56.135 \
+  --insecure-bind-address=0.0.0.0 \
+  --service-cluster-ip-range=10.254.0.0/16 \
+  --service-node-port-range=30000-60000 \
+  --etcd-servers=http://192.168.56.135:2379 \
+  --enable-swagger-ui=true \
+  --allow-privileged=true \
+  --apiserver-count=3 \
+  --audit-log-maxage=30 \
+  --audit-log-maxbackup=3 \
+  --audit-log-maxsize=100 \
+  --audit-log-path=/var/lib/audit.log \
+  --event-ttl=1h \
+  --v=2
+Restart=on-failure
+RestartSec=5
+Type=notify
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target
+```
+修改：
+
+- --advertise-address=本机ip
+- --etcd-servers=http://\<etcd ip>:\<port>
+
+```shell
+cp dk8s/master/kube-apiserver/kube-apiserver.service /etc/systemctl/system/
+systemctl daemon-reload
+systemctl enable kube-apiserver
+systemctl start kube-apiserver
+```
+这时netstat -nltp 能看到8080端口kube-apiserver服务已经启动
+
+### 启动kube-scheduler
+
+dk8s/master/kube-scheduler/kube-scheduler.service 内容如下：
+
+```
+[Unit]
+Description=Kubernetes Scheduler
+Documentation=https://github.com/GoogleCloudPlatform/kubernetes
+
+[Service]
+ExecStart=/root/local/bin/kube-scheduler \
+  --address=127.0.0.1 \
+  --master=http://192.168.56.135:8080 \
+  --leader-elect=true \
+  --v=2
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+```
+
+修改：
+
+- --master=http://\<apiserver ip>:\<port>
+
+```shell
+cp dk8s/master/kube-scheduler/kube-scheduler.service /etc/systemctl/system/
+systemctl daemon-reload
+systemctl enable kube-scheduler
+systemctl start kube-scheduler
+```
+
+### 启动kube-controller-manager
+
+dk8s/master/kube-controller/kube-controller-manager.service 内容如下：
+
+```
+[Unit]
+Description=Kubernetes Controller Manager
+Documentation=https://github.com/GoogleCloudPlatform/kubernetes
+
+[Service]
+ExecStart=/root/local/bin/kube-controller-manager \
+  --address=127.0.0.1 \
+  --master=http://192.168.56.135:8080 \
+  --allocate-node-cidrs=true \
+  --service-cluster-ip-range=10.254.0.0/16 \
+  --cluster-cidr=172.30.0.0/16 \
+  --cluster-name=kubernetes \
+  --leader-elect=true \
+  --v=2
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+```
+修改:
+
+- --master=http://\<apiserver ip>:\<port>
+- --cluster-cidr=Pod网段（这个cidr和两个服务有关kube-controller-manager、calico.yaml；而kube-proxy的cluster-cidr==service-cluster-ip-range）
+
+```shell
+cp dk8s/master/kube-controller/kube-controller-manager.service /etc/systemctl/system/
+systemctl daemon-reload
+systemctl enable kube-controller-manager
+systemctl start kube-controller-manager
+```
+
+至此master服务部署基本完成，bird进程是后面部署calico时创建的，现在不用管.
+
+```
+root@master:~# kubectl get cs
+NAME                 STATUS    MESSAGE              ERROR
+controller-manager   Healthy   ok
+scheduler            Healthy   ok
+etcd-0               Healthy   {"health": "true"}
+
+root@master:~# netstat -nltp
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      1118/sshd
+tcp        0      0 127.0.0.1:10251         0.0.0.0:*               LISTEN      4623/kube-scheduler
+tcp        0      0 192.168.56.135:2379     0.0.0.0:*               LISTEN      2246/etcd
+tcp        0      0 127.0.0.1:2379          0.0.0.0:*               LISTEN      2246/etcd
+tcp        0      0 127.0.0.1:10252         0.0.0.0:*               LISTEN      2633/kube-controlle
+tcp        0      0 192.168.56.135:2380     0.0.0.0:*               LISTEN      2246/etcd
+tcp        0      0 0.0.0.0:179             0.0.0.0:*               LISTEN      11156/bird
+tcp        0      0 127.0.1.1:53            0.0.0.0:*               LISTEN      1195/dnsmasq
+tcp6       0      0 :::22                   :::*                    LISTEN      1118/sshd
+tcp6       0      0 :::6443                 :::*                    LISTEN      5289/kube-apiserver
+tcp6       0      0 :::8080                 :::*                    LISTEN      5289/kube-apiserver
+```
+
+## Minion
+### 启动kubelet
+
+
+dk8s/minion/kubelet/kubelet.service 内容如下：
+
+```
+[Unit]
+Description=Kubernetes Kubelet
+Documentation=https://github.com/GoogleCloudPlatform/kubernetes
+After=docker.service
+Requires=docker.service
+
+[Service]
+WorkingDirectory=/var/lib/kubelet
+ExecStart=/root/local/bin/kubelet \
+  --api-servers=http://192.168.56.135:8080 \
+  --address=192.168.56.136 \
+  --hostname-override=192.168.56.136 \
+  --cluster_dns=10.254.0.2 \
+  --cluster_domain=cluster.local. \
+  --hairpin-mode promiscuous-bridge \
+  --allow-privileged=true \
+  --serialize-image-pulls=false \
+  --logtostderr=true \
+  --pod-infra-container-image="visenzek8s/pause-amd64:3.0" \
+  --network-plugin=cni \
+  --network-plugin-dir=/etc/cni/net.d \
+  --v=2
+ExecStopPost=/sbin/iptables -A INPUT -s 10.0.0.0/8 -p tcp --dport 4194 -j ACCEPT
+ExecStopPost=/sbin/iptables -A INPUT -s 172.16.0.0/12 -p tcp --dport 4194 -j ACCEPT
+ExecStopPost=/sbin/iptables -A INPUT -s 192.168.0.0/16 -p tcp --dport 4194 -j ACCEPT
+ExecStopPost=/sbin/iptables -A INPUT -p tcp --dport 4194 -j DROP
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+```
+修改:
+
+- --api-servers=http://\<apiserver ip>:\<port>  
+- --address=本机IP 
+- --hostname-override=本机IP  
+
+```shell
+apt-get install bridge-utils socat
+cp dk8s/minion/kubelet/kubelet.service /etc/systemctl/system/
+cp dk8s/master/calico/nsenter /usr/local/bin/
+mkdir /var/lib/kubelet
+cp -r dk8s/master/calico/cni /opt/
+
+mkdir -p /etc/cni/net.d
+cat >/etc/cni/net.d/10-calico.conf <<EOF
+{
+    "name": "calico-k8s-network",
+    "type": "calico",
+    "etcd_endpoints": "http://<ETCD_IP>:<ETCD_PORT>",
+    "log_level": "info",
+    "ipam": {
+        "type": "calico-ipam"
+    },
+    "policy": {
+        "type": "k8s"
+    },
+    "kubernetes": {
+        "kubeconfig": "</PATH/TO/KUBECONFIG>"
+    }
+}
+EOF
+
+systemctl daemon-reload
+systemctl enable kubelet
+systemctl start kubelet
+```
+
+### 启动kube-proxy
+
+dk8s/minion/kube-proxy/kube-proxy.service 内容如下：
+
+```
+[Unit]
+Description=Kubernetes Kube-Proxy Server
+Documentation=https://github.com/GoogleCloudPlatform/kubernetes
+After=network.target
+
+[Service]
+WorkingDirectory=/var/lib/kube-proxy
+ExecStart=/root/local/bin/kube-proxy \
+  --master=http://192.168.56.135:8080 \
+  --bind-address=192.168.56.136 \
+  --hostname-override=192.168.56.136 \
+  --cluster-cidr=10.254.0.0/16 \
+  --logtostderr=true \
+  --v=2
+Restart=on-failure
+RestartSec=5
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target
+```
+修改:
+
+- --master=http://\<apiserver ip>:\<port>
+- --bind-address=本机IP 
+- --hostname-owveride=本机IP
+- --cluster-cidr 必须与 kube-apiserver 的 --service-cluster-ip-range 选项值一致；kube-proxy 根据 --cluster-cidr 判断集群内部和外部流量，指定 --cluster-cidr 或 --masquerade-all 选项后 kube-proxy 才会对访问 Service IP 的请求做 SNAT；
+
+```
+mkdir /var/lib/kube-proxy
+cp kube-proxy.service /etc/systemctl/system/
+systemctl daemon-reload
+systemctl enable kube-proxy
+systemctl start kube-proxy
+```
+至此minion部署完毕
+
+在master上执行
+
+```
+root@master:~# kubectl get nodes
+NAME             STATUS    AGE
+192.168.56.136   Ready     21h
+192.168.56.137   Ready     19h
+192.168.56.138   Ready     18h
+```
+## 部署calico
+
+准备镜像,
+在minion节点上
+
+```shell
+cd k8s.images
+for f in *.dif;do docker load -i $f;done
+for f in calico/*.dif;do docker load -i $f;done
+```
+在master节点上：
+
+dk8s/master/calico/calico.yaml 修改:
+
+- etcd_endpoints: "http://192.168.56.135:2379"对应etcd地址
+- CALICO_IPV4POOL_CIDR对应kube-controller-manager配置的--cluster-cidr的值
+- IP_AUTODETECTION_METHOD指定calico绑定Node的哪一个eth
+- CALICO_IPV4POOL_IPIP off
+
+
+```shell
+root@master:~/dk8s/master/calico# kubectl apply -f calico.yaml
+root@master:~/dk8s# kubectl get pods --namespace=kube-system -o wide
+NAME                                       READY     STATUS    RESTARTS   AGE       IP               NODE
+calico-node-1kpqd                          2/2       Running   0          18h       192.168.56.138   192.168.56.138
+calico-node-9bp5d                          2/2       Running   0          18h       192.168.56.136   192.168.56.136
+calico-node-js8hk                          2/2       Running   0          18h       192.168.56.137   192.168.56.137
+calico-policy-controller-279105993-jlg4w   1/1       Running   0          18h       192.168.56.137   192.168.56.137
+```
+修改dk8s/master/calico/conf/calico.conf中etcd地址
+
+```shell
+root@master:~/dk8s/master/calico# ./get_nodes.sh
+NAME      ASN       IPV4                IPV6
+minion1   (64512)   192.168.56.136/24
+minion2   (64512)   192.168.56.137/24
+minion3   (64512)   192.168.56.138/24
+```
+这时候所有的minion节点都配好calico服务了，为了让master能ping通pod，还需要我们自己手动启动caliconode。
+在master上执行 
+
+```
+calicoctl node run -c dk8s/master/calico/conf/calico.conf #可以通过--ip-autodetection-method 参数指定interface
+```
+
+```shell
+root@master:~/dk8s/master/calico# ./get_nodes.sh
+NAME      ASN       IPV4                IPV6
+master    (64512)   192.168.56.135/24
+minion1   (64512)   192.168.56.136/24
+minion2   (64512)   192.168.56.137/24
+minion3   (64512)   192.168.56.138/24
+```
+
+```
+root@master:~# route -n
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+0.0.0.0         10.0.2.1        0.0.0.0         UG    100    0        0 enp0s8
+10.0.2.0        0.0.0.0         255.255.255.0   U     100    0        0 enp0s8
+169.254.0.0     0.0.0.0         255.255.0.0     U     1000   0        0 enp0s3
+172.17.0.0      0.0.0.0         255.255.0.0     U     0      0        0 docker0
+172.30.34.64    192.168.56.136  255.255.255.192 UG    0      0        0 enp0s3
+172.30.51.128   192.168.56.138  255.255.255.192 UG    0      0        0 enp0s3
+172.30.180.0    192.168.56.137  255.255.255.192 UG    0      0        0 enp0s3
+172.30.219.64   0.0.0.0         255.255.255.192 U     0      0        0 *
+192.168.56.0    0.0.0.0         255.255.255.0   U     0      0        0 enp0s3
+```
+172.30.0.0/16就是pod获取到的ip网段。
+
+
+## Dashboard
+
+dk8s/master/kube-dashboard/heapster/heapster.yaml修改:
+
+- --source=kubernetes:https://kubernetes.default 为 --source=kubernetes:http://\<apiserver ip>:\<port>?inClusterConfig=false
+
+dk8s/master/kube-dashboard/dashboard.yaml、dk8s/master/kube-dashboard/head.yaml修改:
+
+- --apiserver-host=http://\<apiserver ip>:\<port>
+
+```
+kubectl create -f dk8s/master/kube-dashboard/heapster
+kubectl create -f dk8s/masterkube-dashboard
+```
+
+## dns
+
+dk8s/master/dns/skydns-rc.yaml 修改:
+
+- --kube-master-url=http://\<apiserver ip>:\<port>
+
+```
+kubectl create -f dk8s/master/dns
+```
+
+## nginx 测试
+
+```
+kubectl create -f dk8s/test-nginx
+service "nginx-ds" created
+daemonset "nginx-ds" created
+```
+1.测试service dns
+
+```
+root@master:~# kubectl exec busybox -- nslookup nginx-ds
+Server:    10.254.0.2
+Address 1: 10.254.0.2 kube-dns.kube-system.svc.cluster.local
+
+Name:      nginx-ds
+Address 1: 10.254.42.90 nginx-ds.default.svc.cluster.local
+```
+
+2.测试pod Ip
+
+```
+root@master:~# kubectl get pods --all-namespaces -o wide |grep nginx-ds
+default       nginx-ds-47mwz                               1/1       Running   0          30m       172.30.180.14    192.168.56.137
+default       nginx-ds-fft61                               1/1       Running   0          30m       172.30.34.82     192.168.56.136
+default       nginx-ds-mt8fx                               1/1       Running   0          30m       172.30.51.149    192.168.56.138
+
+root@master:~# wget 172.30.180.14:80
+--2017-06-01 18:59:52--  http://172.30.180.14/
+Connecting to 172.30.180.14:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 612 [text/html]
+Saving to: ‘index.html’
+
+index.html                                            100%[======================================================================================================================>]     612  --.-KB/s    in 0s      
+
+2017-06-01 18:59:52 (173 MB/s) - ‘index.html’ saved [612/612]
+
+
+```
+
+3.测试集群内部服务
+
+```
+root@master:~# kubectl exec busybox -- wget nginx-ds:80
+Connecting to nginx-ds (10.254.42.90:80)
+index.html           100% |*******************************|   612   0:00:00 ETA
+
+```
+
+4.测试外部服务：浏览器访问任意\<node ip>:36666,会显示nginx页面
