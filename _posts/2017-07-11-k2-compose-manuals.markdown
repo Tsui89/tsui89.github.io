@@ -30,7 +30,7 @@ k2-compose集成了docker-compose==1.7.1的基础功能，包括
 ```yaml
 version: "2"
 hosts:
-  as: 10.1.10.48:4243
+  as: localhost:4243
 
 project: k2-compose-test
 
