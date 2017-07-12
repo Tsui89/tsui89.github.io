@@ -1,4 +1,9 @@
-
+---
+layout: post
+title:  "Deploy a kubernetes1.5.7 cluster"
+date:   2017-06-24 01:01:19 +0800
+categories: jekyll update
+---
 ## Master+ETCD
 
 准备工作：
