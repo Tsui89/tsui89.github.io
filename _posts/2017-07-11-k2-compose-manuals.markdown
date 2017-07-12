@@ -10,7 +10,7 @@ k2-compose集成了docker-compose==1.7.1的基础功能，包括
 	
 	up、stop、start、restart、rm、logs、pull
 
-优化或者增加了以下功能
+优化增加了以下功能
 
 	inspect、ps、bash、show、save	
 	
