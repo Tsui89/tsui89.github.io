@@ -1,14 +1,919 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-06-24T01:07:36+08:00</updated><id>http://localhost:4000/</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
-</subtitle><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/jekyll/update/2017/06/24/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2017-06-24T01:01:19+08:00</published><updated>2017-06-24T01:01:19+08:00</updated><id>http://localhost:4000/jekyll/update/2017/06/24/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2017/06/24/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hippopo</title>
+    <description>很懒很懒的程序员</description>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Thu, 13 Jul 2017 11:16:15 +0800</pubDate>
+    <lastBuildDate>Thu, 13 Jul 2017 11:16:15 +0800</lastBuildDate>
+    <generator>Jekyll v3.5.0</generator>
+    
+      <item>
+        <title>k2-compose Manuals</title>
+        <description>&lt;h4 id=&quot;简介&quot;&gt;简介&lt;/h4&gt;
+&lt;p&gt;k2-compose集成了docker-compose==1.7.1的基础功能，包括&lt;/p&gt;
 
-&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;up、stop、start、restart、rm、logs、pull
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+&lt;p&gt;优化增加了以下功能&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;inspect、ps、bash、show、save	
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry></feed>
+&lt;p&gt;配置文件支持docker-compose原生、k2-compose定制化，这两种配置文件格式。&lt;/p&gt;
+
+&lt;h4 id=&quot;特点&quot;&gt;特点&lt;/h4&gt;
+&lt;p&gt;相对于docker-compose，另外还支持：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1. 主机列表
+2. 容器列表
+3. 容器指定运行主机
+4. 容器依赖关系
+5. 容器健康检查
+6. 容器镜像的信息检测
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;k2-compose文件示例&quot;&gt;k2-compose文件示例&lt;/h4&gt;
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;2&quot;&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;hosts&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;as&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;localhost:4243&lt;/span&gt;
+
+&lt;span class=&quot;s&quot;&gt;project&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;k2-compose-test&lt;/span&gt;
+
+&lt;span class=&quot;s&quot;&gt;services&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+
+  &lt;span class=&quot;s&quot;&gt;busybox1&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;busybox:latest&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;health_check&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;shell&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;echo &quot;ok.&quot; &amp;amp;&amp;amp; exit 0&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;timeout&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;10&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;entrypoint&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;ping&quot;&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;localhost&quot;&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;]&lt;/span&gt;
+
+  &lt;span class=&quot;s&quot;&gt;busybox2&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;busybox:latest&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;host&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;as&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;health_check&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;shell&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;echo &quot;ok.&quot; &amp;amp;&amp;amp; exit 1&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;timeout&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;10&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;entrypoint&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;ping&quot;&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;localhost&quot;&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;s_depends_on&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;busybox1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;上述例子中hosts、project、host、health_check、s_depends_on是k2-compose专有字段，&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;字段&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;描述&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;类型&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;required&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;缺省默认值&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;hosts&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;主机列表&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;object&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;false&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;“local”:”127.0.0.1:4243”&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;project&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;项目名称&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;string&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;false&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;“k2-compose”&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;services.service.host&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;容器运行主机名，必须在hosts里定义&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;string&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;false&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;local&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;services.service.s_depends_on&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;依赖的容器列表&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;array&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;false&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;空&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;services.service.health_check&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;健康检查命令属性&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;object&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;false&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;空（健康）&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;services.service.health_check.shell&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;检查命令shell格式&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;string or string数组&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;false&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;services.service.health_check.timeout&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;检查命令超时时间&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;int(单位s)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;false&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;10&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;操作示例&quot;&gt;操作示例&lt;/h3&gt;
+&lt;p&gt;注&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1. 以下k2-compose.yml就是“k2-compose文件示例”的内容。
+2. 以下所有的命令（除了rm、logs、bash外）都可以接受具体的service名称，也可以缺省，默认是所有的service,如：k2-compose ps busybox1。
+3. k2-compose -f k2-compose.yml，-f接受配置文件，缺省默认是k2-compose.yml, 以下示例都省略-f k2-compose.yml。
+4. Image-Status的值只有在镜像有变化时才会提示。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;show&quot;&gt;show&lt;/h4&gt;
+&lt;p&gt;show 有两种状态，&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;show配置文件的拓扑图；&lt;/li&gt;
+  &lt;li&gt;show service的配置信息；&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;root@minion1:~/k2-compose-0.0.4rc2/tests# k2-compose -f k2-compose.yml show
+┌k2-compose.yml──────────┬────────────┐
+│ host  │ dockerHost     │ services   │
+├───────┼────────────────┼────────────┤
+│ as    │ localhost:4243 │ - busybox2 │
+├───────┼────────────────┼────────────┤
+│ local │ 127.0.0.1:4243 │ - busybox1 │
+└───────┴────────────────┴────────────┘
+root@minion1:~/k2-compose-0.0.4rc2/tests# k2-compose -f k2-compose.yml show busybox1
+┌busybox1──────┬─────────────────────────────┐
+│ entrypoint   │ - ping                      │
+│              │ - localhost                 │
+├──────────────┼─────────────────────────────┤
+│ health_check │ shell: echo &quot;ok.&quot; &amp;amp;&amp;amp; exit 0 │
+│              │ timeout: 10                 │
+├──────────────┼─────────────────────────────┤
+│ image        │ busybox:latest              │
+└──────────────┴─────────────────────────────┘
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;ps&quot;&gt;ps&lt;/h4&gt;
+&lt;p&gt;查看service状态；&lt;/p&gt;
+
+&lt;p&gt;这时候容器还没有部署，Service-Status显示的是undeployed，busybox2依赖于busybox1&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;root@minion1:~/k2-compose-0.0.4rc1/tests# &lt;/span&gt;k2-compose -f k2-compose.yml  ps
++----------+----------------+----------------+--------------+------------+-------+--------------+
+| Service  | Host           | Service-Status | Image-Status | Depends-On | Ports | Network-Mode |
++----------+----------------+----------------+--------------+------------+-------+--------------+
+| busybox1 | 127.0.0.1:4243 | undeployed     |              |            |       | default      |
++----------+----------------+----------------+--------------+------------+-------+--------------+
+| busybox2 | localhost:4243 | undeployed     |              | - busybox1 |       | default      |
++----------+----------------+----------------+--------------+------------+-------+--------------+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;up&quot;&gt;up&lt;/h4&gt;
+&lt;p&gt;启动service，如果镜像不存在的话，会先pull镜像；&lt;/p&gt;
+
+&lt;p&gt;-d 参数是让容器在后台启动；&lt;/p&gt;
+
+&lt;p&gt;在“k2-compose文件示例”中busybox2的health_check的shell脚本返回值是1（非0），所以busybox2的Service-Status状态是error。&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;root@minion1:~/k2-compose-0.0.4rc1/tests# &lt;/span&gt;k2-compose -f k2-compose.yml up -d
+Creating k2composetest_busybox1_1
+Creating k2composetest_busybox2_1
+&lt;span class=&quot;gp&quot;&gt;root@minion1:~/k2-compose-0.0.4rc1/tests# &lt;/span&gt;k2-compose -f k2-compose.yml ps
++----------+----------------+----------------+--------------+------------+-------+--------------+
+| Service  | Host           | Service-Status | Image-Status | Depends-On | Ports | Network-Mode |
++----------+----------------+----------------+--------------+------------+-------+--------------+
+| busybox1 | 127.0.0.1:4243 | running        |              |            |       | default      |
++----------+----------------+----------------+--------------+------------+-------+--------------+
+| busybox2 | localhost:4243 | error          |              | - busybox1 |       | default      |
++----------+----------------+----------------+--------------+------------+-------+--------------+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;stop&quot;&gt;stop&lt;/h4&gt;
+&lt;p&gt;停止service&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;root@minion1:~/k2-compose-0.0.4rc1/tests# k2-compose -f k2-compose.yml stop
+Going to stop ALL-Services. Are you sure? [yN] y
+Stopping [busybox2] ...
+Done.
+Stopping [busybox1] ...
+Done.
+root@minion1:~/k2-compose-0.0.4rc1/tests# k2-compose -f k2-compose.yml ps
++----------+----------------+----------------+--------------+------------+-------+--------------+
+| Service  | Host           | Service-Status | Image-Status | Depends-On | Ports | Network-Mode |
++----------+----------------+----------------+--------------+------------+-------+--------------+
+| busybox1 | 127.0.0.1:4243 | stopped        |              |            |       | default      |
++----------+----------------+----------------+--------------+------------+-------+--------------+
+| busybox2 | localhost:4243 | stopped        |              | - busybox1 |       | default      |
++----------+----------------+----------------+--------------+------------+-------+--------------+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;start&quot;&gt;start&lt;/h4&gt;
+&lt;p&gt;启动service&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;root@minion1:~/k2-compose-0.0.4rc2/tests# k2-compose -f k2-compose.yml start
+Starting [busybox1] ...
+Done.
+Starting [busybox2] ...
+Done.
+root@minion1:~/k2-compose-0.0.4rc2/tests# k2-compose -f k2-compose.yml ps
++----------+----------------+----------------+--------------+------------+-------+--------------+
+| Service  | Host           | Service-Status | Image-Status | Depends-On | Ports | Network-Mode |
++----------+----------------+----------------+--------------+------------+-------+--------------+
+| busybox1 | 127.0.0.1:4243 | running        |              |            |       | default      |
++----------+----------------+----------------+--------------+------------+-------+--------------+
+| busybox2 | localhost:4243 | error          |              | - busybox1 |       | default      |
++----------+----------------+----------------+--------------+------------+-------+--------------+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;restart&quot;&gt;restart&lt;/h4&gt;
+&lt;p&gt;重启service&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;root@minion1:~/k2-compose-0.0.4rc2/tests# k2-compose -f k2-compose.yml restart
+Stopping [busybox1] ...
+Done.
+Starting [busybox1] ...
+Done.
+Stopping [busybox2] ...
+Done.
+Starting [busybox2] ...
+Done.
+root@minion1:~/k2-compose-0.0.4rc2/tests# k2-compose -f k2-compose.yml ps
++----------+----------------+----------------+--------------+------------+-------+--------------+
+| Service  | Host           | Service-Status | Image-Status | Depends-On | Ports | Network-Mode |
++----------+----------------+----------------+--------------+------------+-------+--------------+
+| busybox1 | 127.0.0.1:4243 | running        |              |            |       | default      |
++----------+----------------+----------------+--------------+------------+-------+--------------+
+| busybox2 | localhost:4243 | error          |              | - busybox1 |       | default      |
++----------+----------------+----------------+--------------+------------+-------+--------------+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;logs&quot;&gt;logs&lt;/h4&gt;
+&lt;p&gt;查看service log&lt;/p&gt;
+
+&lt;p&gt;logs 必须指定service名称，支持-f参数，持续显示容器log&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;root@minion1:~/k2-compose-0.0.4rc2/tests# k2-compose -f k2-compose.yml logs busybox1
+Attaching to k2composetest_busybox1_1
+busybox1_1  | PING localhost (127.0.0.1): 56 data bytes
+busybox1_1  | 64 bytes from 127.0.0.1: seq=0 ttl=64 time=0.039 ms
+busybox1_1  | 64 bytes from 127.0.0.1: seq=1 ttl=64 time=0.032 ms
+busybox1_1  | 64 bytes from 127.0.0.1: seq=2 ttl=64 time=0.049 ms
+busybox1_1  | 64 bytes from 127.0.0.1: seq=3 ttl=64 time=0.036 ms
+busybox1_1  | 64 bytes from 127.0.0.1: seq=4 ttl=64 time=0.049 ms
+busybox1_1  | 64 bytes from 127.0.0.1: seq=5 ttl=64 time=0.035 ms
+busybox1_1  | 64 bytes from 127.0.0.1: seq=6 ttl=64 time=0.037 ms
+busybox1_1  | 64 bytes from 127.0.0.1: seq=7 ttl=64 time=0.037 ms
+busybox1_1  | 64 bytes from 127.0.0.1: seq=8 ttl=64 time=0.036 ms
+busybox1_1  | 64 bytes from 127.0.0.1: seq=9 ttl=64 time=0.038 ms
+busybox1_1  | 64 bytes from 127.0.0.1: seq=10 ttl=64 time=0.034 ms
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;pull&quot;&gt;pull&lt;/h4&gt;
+&lt;p&gt;更新service镜像；&lt;/p&gt;
+
+&lt;p&gt;如果有镜像更新，Image-Status会有变化&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;root@minion1:~/k2-compose-0.0.4rc2/tests# k2-compose -f k2-compose.yml pull
+Going to update ALL-Services Images. Are you sure? [yN] y
+Pulling busybox1 (busybox:latest)...
+latest: Pulling from library/busybox
+27144aa8f1b9: Pull complete
+Digest: sha256:be3c11fdba7cfe299214e46edc642e09514dbb9bbefcd0d3836c05a1e0cd0642
+Status: Downloaded newer image for busybox:latest
+Pulling busybox2 (busybox:latest)...
+latest: Pulling from library/busybox
+Digest: sha256:be3c11fdba7cfe299214e46edc642e09514dbb9bbefcd0d3836c05a1e0cd0642
+Status: Image is up to date for busybox:latest
+root@minion1:~/k2-compose-0.0.4rc2/tests# k2-compose -f k2-compose.yml ps
++----------+----------------+----------------+--------------+------------+-------+--------------+
+| Service  | Host           | Service-Status | Image-Status | Depends-On | Ports | Network-Mode |
++----------+----------------+----------------+--------------+------------+-------+--------------+
+| busybox1 | 127.0.0.1:4243 | running        | changed      |            |       | default      |
++----------+----------------+----------------+--------------+------------+-------+--------------+
+| busybox2 | localhost:4243 | error          | changed      | - busybox1 |       | default      |
++----------+----------------+----------------+--------------+------------+-------+--------------+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;bash&quot;&gt;bash&lt;/h4&gt;
+&lt;p&gt;进入容器；&lt;/p&gt;
+
+&lt;p&gt;用的sh,可以手动切换成/bin/bash&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;root@minion1:~/k2-compose-0.0.4rc2/tests# k2-compose -f k2-compose.yml bash busybox1
+#####In [busybox1] Container#####
+/ # ls
+bin   dev   etc   home  proc  root  sys   tmp   usr   var
+/ # exit
+#####Out [busybox1] Container#####
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;inspect&quot;&gt;inspect&lt;/h4&gt;
+&lt;p&gt;检查service的镜像信息，如果容器使用的镜像有变化的话，会显示!(NOT MATCH)&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;root@minion1:~/k2-compose-0.0.4rc2/tests# k2-compose -f k2-compose.yml inspect
+┌k2-compose.yml──┬──────────┬──────────────┬─────────────────────┬────────┐
+│ Image          │ Service  │ Image-Id     │ Created             │ Labels │
+├────────────────┼──────────┼──────────────┼─────────────────────┼────────┤
+│ busybox:latest │ busybox2 │ 00f017a8c2a6 │ 2017-03-09T18:28:04 │        │
+│ !(NOT MATCH)   │          │              │                     │        │
+├────────────────┼──────────┼──────────────┼─────────────────────┼────────┤
+│ busybox:latest │ busybox1 │ c30178c5239f │ 2017-06-15T20:42:30 │        │
+│                │          │              │                     │        │
+└────────────────┴──────────┴──────────────┴─────────────────────┴────────┘
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;save&quot;&gt;save&lt;/h4&gt;
+&lt;p&gt;镜像管理工具，非专业人士慎用；此命令将符合Match状态的service的镜像加一个suffix，然后推送到镜像库&lt;/p&gt;
+
+&lt;p&gt;默认是手动选择模式，–no-interaction非交互模式&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;root@minion1:~/k2-compose-0.0.4rc2/tests# k2-compose -f k2-compose.yml save --suffix test
+ Please choose your images for save (press SPACE to mark, ENTER to continue, Ctrl+C to exit):
+   Image          | Service  | Image-Id     | Match
+   -------------------------------------------------------
+
+ * busybox:latest | busybox1 | c30178c5239f |
+   busybox:latest | busybox2 | 00f017a8c2a6 | !(NOT MATCH)
+
+root@minion1:~/k2-compose-0.0.4rc2/tests# k2-compose -f k2-compose.yml save --suffix test  --no-interaction
+List:
+do              busybox:latest =&amp;gt; busybox:latesttest
+skip(not match) busybox:latest =&amp;gt; busybox:latesttest
+Tag and Push these images.
+These service`s image is not ready, please fix it first.
+┌Not Ready───────┬──────────┬──────────────┬─────────────────────┬────────┐
+│ Image          │ Service  │ Image-Id     │ Created             │ Labels │
+├────────────────┼──────────┼──────────────┼─────────────────────┼────────┤
+│ busybox:latest │ busybox2 │ 00f017a8c2a6 │ 2017-03-09T18:28:04 │        │
+│ !(NOT MATCH)   │          │              │                     │        │
+└────────────────┴──────────┴──────────────┴─────────────────────┴────────┘
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;rm&quot;&gt;rm&lt;/h4&gt;
+&lt;p&gt;删除service时，service必须在stopped状态，然后才能被删除，或者使用-f参数强制删除。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;root@minion1:~/k2-compose-0.0.4rc2/tests# k2-compose -f k2-compose.yml rm busybox1
+Removing [busybox1] ...
+ERROR: 409 Client Error: Conflict
+root@minion1:~/k2-compose-0.0.4rc2/tests# k2-compose -f k2-compose.yml rm -f busybox1
+Removing [busybox1] ...
+Done.
+root@minion1:~/k2-compose-0.0.4rc2/tests# k2-compose -f k2-compose.yml ps
++----------+----------------+----------------+--------------+------------+-------+--------------+
+| Service  | Host           | Service-Status | Image-Status | Depends-On | Ports | Network-Mode |
++----------+----------------+----------------+--------------+------------+-------+--------------+
+| busybox1 | 127.0.0.1:4243 | undeployed     |              |            |       | default      |
++----------+----------------+----------------+--------------+------------+-------+--------------+
+| busybox2 | localhost:4243 | error          | changed      | - busybox1 |       | default      |
++----------+----------------+----------------+--------------+------------+-------+--------------+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+</description>
+        <pubDate>Tue, 11 Jul 2017 01:01:19 +0800</pubDate>
+        <link>http://localhost:4000/jekyll/update/2017/07/11/k2-compose-manuals.html</link>
+        <guid isPermaLink="true">http://localhost:4000/jekyll/update/2017/07/11/k2-compose-manuals.html</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
+    
+      <item>
+        <title>Deploy a kubernetes1.5.7 cluster</title>
+        <description>&lt;h2 id=&quot;masteretcd&quot;&gt;Master+ETCD&lt;/h2&gt;
+
+&lt;p&gt;准备工作：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1. download dk8s.v1.5.7.tar.gz
+2. tar zxvf  dk8s.v1.5.7.tar.gz
+3. cp -r dk8s/local /root/
+4. export PATH=$PATH:/root/local/bin
+5. cd dk8s
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;注：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;以下操作是ubuntu16 systemctl配置方式，ubuntu14请按照修改项修改script里面的启动脚本。&lt;/li&gt;
+  &lt;li&gt;第3步需要在所有master/minion节点上执行。&lt;/li&gt;
+  &lt;li&gt;以下所有kubectl命令都是在master上执行的。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;搭建单节点etcd&quot;&gt;搭建单节点etcd&lt;/h3&gt;
+
+&lt;p&gt;dk8s/master/etcd/etcd.service 内容如下：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[Unit]
+Description=Etcd Server
+After=network.target
+After=network-online.target
+Wants=network-online.target
+Documentation=https://github.com/coreos
+
+[Service]
+Type=notify
+WorkingDirectory=/var/lib/etcd/
+ExecStart=/root/local/bin/etcd \
+  --name=etcd-host0 \
+  --initial-advertise-peer-urls=http://192.168.56.135:2380 \
+  --listen-peer-urls=http://192.168.56.135:2380 \
+  --listen-client-urls=http://192.168.56.135:2379,http://127.0.0.1:2379 \
+  --advertise-client-urls=http://192.168.56.135:2379 \
+  --initial-cluster-token=etcd-cluster-0 \
+  --initial-cluster=etcd-host0=http://192.168.56.135:2380 \
+  --initial-cluster-state=new \
+  --data-dir=/var/lib/etcd
+Restart=on-failure
+RestartSec=5
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;修改etcd ip地址之后,执行&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mkdir /var/lib/etcd  #创建etcd data-dir
+cp dk8s/master/etcd/etcd.service /etc/systemctl/system/
+systemctl daemon-reload
+systemctl enable etcd
+systemctl start etcd
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;启动kube-apiserver&quot;&gt;启动kube-apiserver&lt;/h3&gt;
+
+&lt;p&gt;dk8s/master/kube-apiserver/kube-apiserver.service 内容如下：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[Unit]
+Description=Kubernetes API Server
+Documentation=https://github.com/GoogleCloudPlatform/kubernetes
+After=network.target
+
+[Service]
+ExecStart=/root/local/bin/kube-apiserver \
+  --admission-control= \
+  --advertise-address=192.168.56.135 \
+  --insecure-bind-address=0.0.0.0 \
+  --service-cluster-ip-range=10.254.0.0/16 \
+  --service-node-port-range=30000-60000 \
+  --etcd-servers=http://192.168.56.135:2379 \
+  --enable-swagger-ui=true \
+  --allow-privileged=true \
+  --apiserver-count=3 \
+  --audit-log-maxage=30 \
+  --audit-log-maxbackup=3 \
+  --audit-log-maxsize=100 \
+  --audit-log-path=/var/lib/audit.log \
+  --event-ttl=1h \
+  --v=2
+Restart=on-failure
+RestartSec=5
+Type=notify
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;修改：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;–advertise-address=本机ip&lt;/li&gt;
+  &lt;li&gt;–etcd-servers=http://&amp;lt;etcd ip&amp;gt;:&amp;lt;port&amp;gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cp dk8s/master/kube-apiserver/kube-apiserver.service /etc/systemctl/system/
+systemctl daemon-reload
+systemctl &lt;span class=&quot;nb&quot;&gt;enable &lt;/span&gt;kube-apiserver
+systemctl start kube-apiserver
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;这时netstat -nltp 能看到8080端口kube-apiserver服务已经启动&lt;/p&gt;
+
+&lt;h3 id=&quot;启动kube-scheduler&quot;&gt;启动kube-scheduler&lt;/h3&gt;
+
+&lt;p&gt;dk8s/master/kube-scheduler/kube-scheduler.service 内容如下：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[Unit]
+Description=Kubernetes Scheduler
+Documentation=https://github.com/GoogleCloudPlatform/kubernetes
+
+[Service]
+ExecStart=/root/local/bin/kube-scheduler \
+  --address=127.0.0.1 \
+  --master=http://192.168.56.135:8080 \
+  --leader-elect=true \
+  --v=2
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;修改：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;–master=http://&amp;lt;apiserver ip&amp;gt;:&amp;lt;port&amp;gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cp dk8s/master/kube-scheduler/kube-scheduler.service /etc/systemctl/system/
+systemctl daemon-reload
+systemctl &lt;span class=&quot;nb&quot;&gt;enable &lt;/span&gt;kube-scheduler
+systemctl start kube-scheduler
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;启动kube-controller-manager&quot;&gt;启动kube-controller-manager&lt;/h3&gt;
+
+&lt;p&gt;dk8s/master/kube-controller/kube-controller-manager.service 内容如下：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[Unit]
+Description=Kubernetes Controller Manager
+Documentation=https://github.com/GoogleCloudPlatform/kubernetes
+
+[Service]
+ExecStart=/root/local/bin/kube-controller-manager \
+  --address=127.0.0.1 \
+  --master=http://192.168.56.135:8080 \
+  --allocate-node-cidrs=true \
+  --service-cluster-ip-range=10.254.0.0/16 \
+  --cluster-cidr=172.30.0.0/16 \
+  --cluster-name=kubernetes \
+  --leader-elect=true \
+  --v=2
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;修改:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;–master=http://&amp;lt;apiserver ip&amp;gt;:&amp;lt;port&amp;gt;&lt;/li&gt;
+  &lt;li&gt;–cluster-cidr=Pod网段（这个cidr和两个服务有关kube-controller-manager、calico.yaml；而kube-proxy的cluster-cidr==service-cluster-ip-range）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cp dk8s/master/kube-controller/kube-controller-manager.service /etc/systemctl/system/
+systemctl daemon-reload
+systemctl &lt;span class=&quot;nb&quot;&gt;enable &lt;/span&gt;kube-controller-manager
+systemctl start kube-controller-manager
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;至此master服务部署基本完成，bird进程是后面部署calico时创建的，现在不用管.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;root@master:~# kubectl get cs
+NAME                 STATUS    MESSAGE              ERROR
+controller-manager   Healthy   ok
+scheduler            Healthy   ok
+etcd-0               Healthy   {&quot;health&quot;: &quot;true&quot;}
+
+root@master:~# netstat -nltp
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      1118/sshd
+tcp        0      0 127.0.0.1:10251         0.0.0.0:*               LISTEN      4623/kube-scheduler
+tcp        0      0 192.168.56.135:2379     0.0.0.0:*               LISTEN      2246/etcd
+tcp        0      0 127.0.0.1:2379          0.0.0.0:*               LISTEN      2246/etcd
+tcp        0      0 127.0.0.1:10252         0.0.0.0:*               LISTEN      2633/kube-controlle
+tcp        0      0 192.168.56.135:2380     0.0.0.0:*               LISTEN      2246/etcd
+tcp        0      0 0.0.0.0:179             0.0.0.0:*               LISTEN      11156/bird
+tcp        0      0 127.0.1.1:53            0.0.0.0:*               LISTEN      1195/dnsmasq
+tcp6       0      0 :::22                   :::*                    LISTEN      1118/sshd
+tcp6       0      0 :::6443                 :::*                    LISTEN      5289/kube-apiserver
+tcp6       0      0 :::8080                 :::*                    LISTEN      5289/kube-apiserver
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;minion&quot;&gt;Minion&lt;/h2&gt;
+&lt;h3 id=&quot;启动kubelet&quot;&gt;启动kubelet&lt;/h3&gt;
+
+&lt;p&gt;dk8s/minion/kubelet/kubelet.service 内容如下：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[Unit]
+Description=Kubernetes Kubelet
+Documentation=https://github.com/GoogleCloudPlatform/kubernetes
+After=docker.service
+Requires=docker.service
+
+[Service]
+WorkingDirectory=/var/lib/kubelet
+ExecStart=/root/local/bin/kubelet \
+  --api-servers=http://192.168.56.135:8080 \
+  --address=192.168.56.136 \
+  --hostname-override=192.168.56.136 \
+  --cluster_dns=10.254.0.2 \
+  --cluster_domain=cluster.local. \
+  --hairpin-mode promiscuous-bridge \
+  --allow-privileged=true \
+  --serialize-image-pulls=false \
+  --logtostderr=true \
+  --pod-infra-container-image=&quot;visenzek8s/pause-amd64:3.0&quot; \
+  --network-plugin=cni \
+  --network-plugin-dir=/etc/cni/net.d \
+  --v=2
+ExecStopPost=/sbin/iptables -A INPUT -s 10.0.0.0/8 -p tcp --dport 4194 -j ACCEPT
+ExecStopPost=/sbin/iptables -A INPUT -s 172.16.0.0/12 -p tcp --dport 4194 -j ACCEPT
+ExecStopPost=/sbin/iptables -A INPUT -s 192.168.0.0/16 -p tcp --dport 4194 -j ACCEPT
+ExecStopPost=/sbin/iptables -A INPUT -p tcp --dport 4194 -j DROP
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;修改:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;–api-servers=http://&amp;lt;apiserver ip&amp;gt;:&amp;lt;port&amp;gt;&lt;/li&gt;
+  &lt;li&gt;–address=本机IP&lt;/li&gt;
+  &lt;li&gt;–hostname-override=本机IP&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt-get install bridge-utils socat
+cp dk8s/minion/kubelet/kubelet.service /etc/systemctl/system/
+cp dk8s/master/calico/nsenter /usr/local/bin/
+mkdir /var/lib/kubelet
+cp -r dk8s/master/calico/cni /opt/
+
+mkdir -p /etc/cni/net.d
+cat &amp;gt;/etc/cni/net.d/10-calico.conf &lt;span class=&quot;sh&quot;&gt;&amp;lt;&amp;lt;EOF
+{
+    &quot;name&quot;: &quot;calico-k8s-network&quot;,
+    &quot;type&quot;: &quot;calico&quot;,
+    &quot;etcd_endpoints&quot;: &quot;http://&amp;lt;ETCD_IP&amp;gt;:&amp;lt;ETCD_PORT&amp;gt;&quot;,
+    &quot;log_level&quot;: &quot;info&quot;,
+    &quot;ipam&quot;: {
+        &quot;type&quot;: &quot;calico-ipam&quot;
+    },
+    &quot;policy&quot;: {
+        &quot;type&quot;: &quot;k8s&quot;
+    },
+    &quot;kubernetes&quot;: {
+        &quot;kubeconfig&quot;: &quot;&amp;lt;/PATH/TO/KUBECONFIG&amp;gt;&quot;
+    }
+}
+EOF
+
+&lt;/span&gt;systemctl daemon-reload
+systemctl &lt;span class=&quot;nb&quot;&gt;enable &lt;/span&gt;kubelet
+systemctl start kubelet
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;启动kube-proxy&quot;&gt;启动kube-proxy&lt;/h3&gt;
+
+&lt;p&gt;dk8s/minion/kube-proxy/kube-proxy.service 内容如下：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[Unit]
+Description=Kubernetes Kube-Proxy Server
+Documentation=https://github.com/GoogleCloudPlatform/kubernetes
+After=network.target
+
+[Service]
+WorkingDirectory=/var/lib/kube-proxy
+ExecStart=/root/local/bin/kube-proxy \
+  --master=http://192.168.56.135:8080 \
+  --bind-address=192.168.56.136 \
+  --hostname-override=192.168.56.136 \
+  --cluster-cidr=10.254.0.0/16 \
+  --logtostderr=true \
+  --v=2
+Restart=on-failure
+RestartSec=5
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;修改:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;–master=http://&amp;lt;apiserver ip&amp;gt;:&amp;lt;port&amp;gt;&lt;/li&gt;
+  &lt;li&gt;–bind-address=本机IP&lt;/li&gt;
+  &lt;li&gt;–hostname-owveride=本机IP&lt;/li&gt;
+  &lt;li&gt;–cluster-cidr 必须与 kube-apiserver 的 –service-cluster-ip-range 选项值一致；kube-proxy 根据 –cluster-cidr 判断集群内部和外部流量，指定 –cluster-cidr 或 –masquerade-all 选项后 kube-proxy 才会对访问 Service IP 的请求做 SNAT；&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mkdir /var/lib/kube-proxy
+cp kube-proxy.service /etc/systemctl/system/
+systemctl daemon-reload
+systemctl enable kube-proxy
+systemctl start kube-proxy
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;至此minion部署完毕&lt;/p&gt;
+
+&lt;p&gt;在master上执行&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;root@master:~# kubectl get nodes
+NAME             STATUS    AGE
+192.168.56.136   Ready     21h
+192.168.56.137   Ready     19h
+192.168.56.138   Ready     18h
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h2 id=&quot;部署calico&quot;&gt;部署calico&lt;/h2&gt;
+
+&lt;p&gt;准备镜像,
+在minion节点上&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;k8s.images
+&lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;f &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.dif;do docker load -i &lt;span class=&quot;nv&quot;&gt;$f&lt;/span&gt;;&lt;span class=&quot;k&quot;&gt;done
+for &lt;/span&gt;f &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;calico/&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.dif;do docker load -i &lt;span class=&quot;nv&quot;&gt;$f&lt;/span&gt;;&lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;在master节点上：&lt;/p&gt;
+
+&lt;p&gt;dk8s/master/calico/calico.yaml 修改:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;etcd_endpoints: “http://192.168.56.135:2379”对应etcd地址&lt;/li&gt;
+  &lt;li&gt;CALICO_IPV4POOL_CIDR对应kube-controller-manager配置的–cluster-cidr的值&lt;/li&gt;
+  &lt;li&gt;IP_AUTODETECTION_METHOD指定calico绑定Node的哪一个eth&lt;/li&gt;
+  &lt;li&gt;CALICO_IPV4POOL_IPIP off&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;root@master:~/dk8s/master/calico# &lt;/span&gt;kubectl apply -f calico.yaml
+&lt;span class=&quot;gp&quot;&gt;root@master:~/dk8s# &lt;/span&gt;kubectl get pods --namespace&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;kube-system -o wide
+NAME                                       READY     STATUS    RESTARTS   AGE       IP               NODE
+calico-node-1kpqd                          2/2       Running   0          18h       192.168.56.138   192.168.56.138
+calico-node-9bp5d                          2/2       Running   0          18h       192.168.56.136   192.168.56.136
+calico-node-js8hk                          2/2       Running   0          18h       192.168.56.137   192.168.56.137
+calico-policy-controller-279105993-jlg4w   1/1       Running   0          18h       192.168.56.137   192.168.56.137
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;修改dk8s/master/calico/conf/calico.conf中etcd地址&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;root@master:~/dk8s/master/calico# &lt;/span&gt;./get_nodes.sh
+NAME      ASN       IPV4                IPV6
+minion1   &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;64512&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;   192.168.56.136/24
+minion2   &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;64512&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;   192.168.56.137/24
+minion3   &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;64512&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;   192.168.56.138/24
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;这时候所有的minion节点都配好calico服务了，为了让master能ping通pod，还需要我们自己手动启动caliconode。
+在master上执行&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;calicoctl node run -c dk8s/master/calico/conf/calico.conf #可以通过--ip-autodetection-method 参数指定interface
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;root@master:~/dk8s/master/calico# &lt;/span&gt;./get_nodes.sh
+NAME      ASN       IPV4                IPV6
+master    &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;64512&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;   192.168.56.135/24
+minion1   &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;64512&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;   192.168.56.136/24
+minion2   &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;64512&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;   192.168.56.137/24
+minion3   &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;64512&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;   192.168.56.138/24
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;root@master:~# route -n
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+0.0.0.0         10.0.2.1        0.0.0.0         UG    100    0        0 enp0s8
+10.0.2.0        0.0.0.0         255.255.255.0   U     100    0        0 enp0s8
+169.254.0.0     0.0.0.0         255.255.0.0     U     1000   0        0 enp0s3
+172.17.0.0      0.0.0.0         255.255.0.0     U     0      0        0 docker0
+172.30.34.64    192.168.56.136  255.255.255.192 UG    0      0        0 enp0s3
+172.30.51.128   192.168.56.138  255.255.255.192 UG    0      0        0 enp0s3
+172.30.180.0    192.168.56.137  255.255.255.192 UG    0      0        0 enp0s3
+172.30.219.64   0.0.0.0         255.255.255.192 U     0      0        0 *
+192.168.56.0    0.0.0.0         255.255.255.0   U     0      0        0 enp0s3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;172.30.0.0/16就是pod获取到的ip网段。&lt;/p&gt;
+
+&lt;h2 id=&quot;dashboard&quot;&gt;Dashboard&lt;/h2&gt;
+
+&lt;p&gt;dk8s/master/kube-dashboard/heapster/heapster.yaml修改:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;–source=kubernetes:https://kubernetes.default 为 –source=kubernetes:http://&amp;lt;apiserver ip&amp;gt;:&amp;lt;port&amp;gt;?inClusterConfig=false&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;dk8s/master/kube-dashboard/dashboard.yaml、dk8s/master/kube-dashboard/head.yaml修改:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;–apiserver-host=http://&amp;lt;apiserver ip&amp;gt;:&amp;lt;port&amp;gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kubectl create -f dk8s/master/kube-dashboard/heapster
+kubectl create -f dk8s/masterkube-dashboard
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;dns&quot;&gt;dns&lt;/h2&gt;
+
+&lt;p&gt;dk8s/master/dns/skydns-rc.yaml 修改:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;–kube-master-url=http://&amp;lt;apiserver ip&amp;gt;:&amp;lt;port&amp;gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kubectl create -f dk8s/master/dns
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;nginx-测试&quot;&gt;nginx 测试&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kubectl create -f dk8s/test-nginx
+service &quot;nginx-ds&quot; created
+daemonset &quot;nginx-ds&quot; created
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;1.测试service dns&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;root@master:~# kubectl exec busybox -- nslookup nginx-ds
+Server:    10.254.0.2
+Address 1: 10.254.0.2 kube-dns.kube-system.svc.cluster.local
+
+Name:      nginx-ds
+Address 1: 10.254.42.90 nginx-ds.default.svc.cluster.local
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;2.测试pod Ip&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;root@master:~# kubectl get pods --all-namespaces -o wide |grep nginx-ds
+default       nginx-ds-47mwz                               1/1       Running   0          30m       172.30.180.14    192.168.56.137
+default       nginx-ds-fft61                               1/1       Running   0          30m       172.30.34.82     192.168.56.136
+default       nginx-ds-mt8fx                               1/1       Running   0          30m       172.30.51.149    192.168.56.138
+
+root@master:~# wget 172.30.180.14:80
+--2017-06-01 18:59:52--  http://172.30.180.14/
+Connecting to 172.30.180.14:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 612 [text/html]
+Saving to: ‘index.html’
+
+index.html                                            100%[======================================================================================================================&amp;gt;]     612  --.-KB/s    in 0s      
+
+2017-06-01 18:59:52 (173 MB/s) - ‘index.html’ saved [612/612]
+
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;3.测试集群内部服务&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;root@master:~# kubectl exec busybox -- wget nginx-ds:80
+Connecting to nginx-ds (10.254.42.90:80)
+index.html           100% |*******************************|   612   0:00:00 ETA
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;4.测试外部服务：浏览器访问任意&amp;lt;node ip&amp;gt;:36666,会显示nginx页面&lt;/p&gt;
+</description>
+        <pubDate>Sat, 24 Jun 2017 01:01:19 +0800</pubDate>
+        <link>http://localhost:4000/jekyll/update/2017/06/24/Deploy-k8s-v1.5.7.html</link>
+        <guid isPermaLink="true">http://localhost:4000/jekyll/update/2017/06/24/Deploy-k8s-v1.5.7.html</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
+    
+  </channel>
+</rss>
