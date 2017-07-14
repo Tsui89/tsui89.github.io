@@ -7,5 +7,5 @@ label_color: 666666
 github_application:
   client_id: 8b8dc39ff561c72d08ec
   code_authenticator: https://hippopo.herokuapp.com/authenticate/
-  callback_url: {{page_path}}
+  callback_url: https://tsui89.github.io/public/html/gpgc_redirect.html
 enable_diagnostics: false

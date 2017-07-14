@@ -1,6 +1,5 @@
 ---
 layout: default
-comments: true
 ---
 <article class="post card" itemscope itemtype="http://schema.org/BlogPosting">
  <div class="card-content">
@@ -14,4 +13,5 @@ comments: true
   </div>
 </div>
 </article>
-{% include gpgc_comments.html post_title=page.title %}
+<!-- {% include gpgc_comments.html post_title=page.title %} -->
+{% include comments.html %}
