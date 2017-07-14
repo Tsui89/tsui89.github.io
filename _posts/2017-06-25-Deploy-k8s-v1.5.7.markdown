@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Deploy a kubernetes1.5.7 cluster"
+title:  "Kubernetes v1.5.7 Deployment"
 date:   2017-06-24 01:01:19 +0800
 categories: jekyll update
 ---
@@ -8,16 +8,18 @@ categories: jekyll update
 
 准备工作：
 
+[download dk8s.tar.gz ](https://pan.baidu.com/s/1nvKBgb3)  百度盘 密码: 478m
+
 ```
-1. download dk8s.v1.5.7.tar.gz
-2. tar zxvf  dk8s.v1.5.7.tar.gz
+1. download dk8s.tar.gz
+2. tar zxvf  dk8s.tar.gz
 3. cp -r dk8s/local /root/
 4. export PATH=$PATH:/root/local/bin
 5. cd dk8s
 ```
 注：
 
-1. 以下操作是ubuntu16 systemctl配置方式，ubuntu14请按照修改项修改script里面的启动脚本。
+1. 以下操作是ubuntu16 systemctl配置方式，ubuntu14请按照修改项修改script里面的脚本启动。
 2. 第3步需要在所有master/minion节点上执行。
 3. 以下所有kubectl命令都是在master上执行的。 
 

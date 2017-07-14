@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hippopo</title>
-    <description>很懒很懒的程序员</description>
+    <description>A very lazy programmer.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 13 Jul 2017 11:16:15 +0800</pubDate>
-    <lastBuildDate>Thu, 13 Jul 2017 11:16:15 +0800</lastBuildDate>
+    <pubDate>Fri, 14 Jul 2017 10:18:24 +0800</pubDate>
+    <lastBuildDate>Fri, 14 Jul 2017 10:18:24 +0800</lastBuildDate>
     <generator>Jekyll v3.5.0</generator>
     
       <item>
@@ -348,7 +348,7 @@ bin   dev   etc   home  proc  root  sys   tmp   usr   var
 &lt;/div&gt;
 
 &lt;h4 id=&quot;save&quot;&gt;save&lt;/h4&gt;
-&lt;p&gt;镜像管理工具，非专业人士慎用；此命令将符合Match状态的service的镜像加一个suffix，然后推送到镜像库&lt;/p&gt;
+&lt;p&gt;镜像管理工具，非专业人士慎用；此命令将符合Match状态的service的镜像tag后面加一个suffix，然后推送到镜像库&lt;/p&gt;
 
 &lt;p&gt;默认是手动选择模式，–no-interaction非交互模式&lt;/p&gt;
 
@@ -395,6 +395,11 @@ root@minion1:~/k2-compose-0.0.4rc2/tests# k2-compose -f k2-compose.yml ps
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
+&lt;h3 id=&quot;troubleshooting&quot;&gt;Troubleshooting&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;安装过程中由于docker-compose==1.7.1要求的requests&amp;gt;=2.6 &amp;lt;2.8,如果本地requests版本不对，需要先重新安装requests: pip install requests==2.7&lt;/li&gt;
+&lt;/ol&gt;
 </description>
         <pubDate>Tue, 11 Jul 2017 01:01:19 +0800</pubDate>
         <link>http://localhost:4000/jekyll/update/2017/07/11/k2-compose-manuals.html</link>
