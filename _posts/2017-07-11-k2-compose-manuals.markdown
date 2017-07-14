@@ -329,3 +329,8 @@ root@minion1:~/k2-compose-0.0.4rc2/tests# k2-compose -f k2-compose.yml ps
 +----------+----------------+----------------+--------------+------------+-------+--------------+
 ```
 
+
+
+### Troubleshooting
+
+1. 安装过程中由于docker-compose==1.7.1要求的requests>=2.6 <2.8,如果本地requests版本不对，需要先重新安装requests: pip install requests==2.7
