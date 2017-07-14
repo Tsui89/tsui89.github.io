@@ -1,0 +1,11 @@
+repo_owner: tsui89
+repo_name: https://github.com/Tsui89
+disabled: false
+use_show_action: false
+label_name: Post Comments
+label_color: 666666
+github_application:
+  client_id: 8b8dc39ff561c72d08ec
+  code_authenticator: https://hippopo.herokuapp.com/authenticate/
+  callback_url: https://tsui89.github.io/index.html
+enable_diagnostics: false
