@@ -282,7 +282,7 @@ root@minion1:~/k2-compose-0.0.4rc2/tests# k2-compose -f k2-compose.yml inspect
 ```
 
 #### save
-镜像管理工具，非专业人士慎用；此命令将符合Match状态的service的镜像加一个suffix，然后推送到镜像库
+镜像管理工具，非专业人士慎用；此命令将符合Match状态的service的镜像tag后面加一个suffix，然后推送到镜像库
 
 默认是手动选择模式，--no-interaction非交互模式
 
