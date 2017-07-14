@@ -6,13 +6,13 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: Hippopo 
+title: Hippopo
 email: wenchangcui@gmail.com
-description: A very lazy programmer. 
+description: A very lazy programmer.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site
+url: "test" # the base hostname & protocol for your site
 #twitter_username: jekyllrb
-github_username: tsui89 
+github_username: tsui89
 
 # Build settings
 markdown: kramdown
