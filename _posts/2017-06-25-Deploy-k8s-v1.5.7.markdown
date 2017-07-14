@@ -4,6 +4,10 @@ title:  "Kubernetes v1.5.7 Deployment"
 date:   2017-06-24 01:01:19 +0800
 categories: jekyll update
 ---
+
+## k8s部署拓扑图
+![](static/posts/dk8s/dk8s-topology.jpg)
+
 ## Master+ETCD
 
 准备工作：
