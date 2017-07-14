@@ -6,7 +6,8 @@ categories: jekyll update
 ---
 
 ## k8s部署拓扑图
-![](https://tsui89.github.io/static/posts/dk8s/dk8s-topology.jpg)
+
+<img src="https://tsui89.github.io/static/posts/dk8s/dk8s-topology.jpg" weight=400 height=200 align="left">
 
 ## Master+ETCD
 
