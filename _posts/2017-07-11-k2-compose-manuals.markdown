@@ -1,5 +1,6 @@
 ---
 layout: post
+comments: true
 title:  "k2-compose Manuals"
 date:   2017-07-11 01:01:19 +0800
 categories: jekyll update
@@ -7,13 +8,13 @@ categories: jekyll update
 
 #### 简介
 k2-compose集成了docker-compose==1.7.1的基础功能，包括
-	
+
 	up、stop、start、restart、rm、logs、pull
 
 优化增加了以下功能
 
-	inspect、ps、bash、show、save	
-	
+	inspect、ps、bash、show、save
+
 配置文件支持docker-compose原生、k2-compose定制化，这两种配置文件格式。
 
 #### 特点
@@ -202,7 +203,7 @@ root@minion1:~/k2-compose-0.0.4rc2/tests# k2-compose -f k2-compose.yml ps
 +----------+----------------+----------------+--------------+------------+-------+--------------+
 ```
 
-#### logs 
+#### logs
 查看service log
 
 logs 必须指定service名称，支持-f参数，持续显示容器log
@@ -224,7 +225,7 @@ busybox1_1  | 64 bytes from 127.0.0.1: seq=9 ttl=64 time=0.038 ms
 busybox1_1  | 64 bytes from 127.0.0.1: seq=10 ttl=64 time=0.034 ms
 ```
 
-#### pull 
+#### pull
 更新service镜像；
 
 如果有镜像更新，Image-Status会有变化
