@@ -1,5 +1,7 @@
 ---
 layout: post
+comments: true
+identifier: dk8s
 title:  "Kubernetes v1.5.7 Deployment"
 date:   2017-06-24 01:01:19 +0800
 categories: jekyll update
@@ -23,13 +25,13 @@ categories: jekyll update
 ```
 1. download dk8s.tar.gz
 2. tar zxvf  dk8s.tar.gz
-3. cp -r dk8s/local /root/ 
+3. cp -r dk8s/local /root/
 4. export PATH=$PATH:/root/local/bin
 ```
 注：
 
 1. 以下操作是ubuntu16 systemctl配置方式，ubuntu14请按照修改项修改script里面的脚本启动。
-3. 以下所有kubectl命令都是在master上执行的。 
+3. 以下所有kubectl命令都是在master上执行的。
 
 ### 搭建单节点etcd
 
@@ -261,7 +263,7 @@ WantedBy=multi-user.target
 修改:
 
 - --api-servers=http://\<apiserver ip>:\<port>  
-- --address=本机IP 
+- --address=本机IP
 - --hostname-override=本机IP  
 
 ```shell
@@ -324,7 +326,7 @@ WantedBy=multi-user.target
 修改:
 
 - --master=http://\<apiserver ip>:\<port>
-- --bind-address=本机IP 
+- --bind-address=本机IP
 - --hostname-owveride=本机IP
 - --cluster-cidr 必须与 kube-apiserver 的 --service-cluster-ip-range 选项值一致；kube-proxy 根据 --cluster-cidr 判断集群内部和外部流量，指定 --cluster-cidr 或 --masquerade-all 选项后 kube-proxy 才会对访问 Service IP 的请求做 SNAT；
 
@@ -385,7 +387,7 @@ minion2   (64512)   192.168.56.137/24
 minion3   (64512)   192.168.56.138/24
 ```
 这时候所有的minion节点都配好calico服务了，为了让master能ping通pod，还需要我们自己手动启动caliconode。
-在master上执行 
+在master上执行
 
 ```
 calicoctl node run -c dk8s/master/calico/conf/calico.conf #可以通过--ip-autodetection-method 参数指定interface
