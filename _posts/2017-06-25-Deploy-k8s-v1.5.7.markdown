@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: true
-title:  "Kubernetes v1.5.7 Deployment"
+title:  "离线部署Kubernetes v1.5.7 + calico"
 date:   2017-06-24 01:01:19 +0800
 categories: jekyll update
 ---
