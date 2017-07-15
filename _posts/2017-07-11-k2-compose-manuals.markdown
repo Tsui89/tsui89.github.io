@@ -1,6 +1,6 @@
 ---
 layout: post
-comments: true
+<!-- comments: true -->
 title:  "k2-compose Manuals"
 date:   2017-07-11 01:01:19 +0800
 categories: jekyll update

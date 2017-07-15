@@ -1,7 +1,6 @@
 ---
 layout: post
 comments: true
-identifier: dk8s
 title:  "Kubernetes v1.5.7 Deployment"
 date:   2017-06-24 01:01:19 +0800
 categories: jekyll update
