@@ -1,6 +1,6 @@
 ---
 layout: post
-<!-- comments: true -->
+comments: true
 title:  "k2-compose Manuals"
 date:   2017-07-11 01:01:19 +0800
 categories: jekyll update
@@ -33,7 +33,10 @@ version: "2"
 hosts:
   as: localhost:4243
 
+
 project: k2-compose-test
+s_extra_hosts:
+  busybox: 192.168.1.2
 
 services:
 
@@ -54,12 +57,13 @@ services:
     s_depends_on:
       - busybox1
 ```
-上述例子中hosts、project、host、health_check、s_depends_on是k2-compose专有字段，
+上述例子中hosts、project、s_extra_host、host、health_check、s_depends_on是k2-compose专有字段，
 
 | 字段 | 描述 | 类型 | required |缺省默认值|
 |:---|:---|:----|:---|:---|
 |hosts|主机列表|object|false|"local":"127.0.0.1:4243"
 |project|项目名称|string|false|"k2-compose"
+|s_extra_hosts|域名映射表，bridge网络模式使用|object|false|空
 |services.service.host|容器运行主机名，必须在hosts里定义|string|false|local
 |services.service.s\_depends\_on|依赖的容器列表|array|false|空|
 |services.service.health\_check|健康检查命令属性|object|false|空（健康）|
