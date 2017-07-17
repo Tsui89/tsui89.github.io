@@ -81,7 +81,7 @@ services:
 注
 
 	1. 以下k2-compose.yml就是“k2-compose文件示例”的内容。
-	2. 以下所有的命令（除了rm、logs、bash外）都可以接受具体的service名称，也可以缺省，默认是所有的service,如：k2-compose ps busybox1。
+	2. 以下所有的命令（除了rm、logs、bash外）都可以接受具体的service名称，也可以缺省，默认是所有的service,如：k2-compose ps busybox1。同时service支持正则匹配，如：k2-compose ps busybox\* 等价于k2-compose ps busybox1 busybox2
 	3. k2-compose -f k2-compose.yml，-f接受配置文件，缺省默认是k2-compose.yml, 以下示例都省略-f k2-compose.yml。
 	4. Image-Status的值只有在镜像有变化时才会提示。
 
