@@ -9,7 +9,7 @@
 title: Hippopo
 email: wenchangcui@gmail.com
 description: A very lazy programmer.
-baseurl: "https://tsui89.github.io" # the subpath of your site, e.g. /blog
+baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site
 #twitter_username: jekyllrb
 github_username: tsui89

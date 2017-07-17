@@ -17,6 +17,12 @@ k2-compose集成了docker-compose==1.7.1的基础功能，包括
 
 配置文件支持docker-compose原生、k2-compose定制化，这两种配置文件格式。
 
+安装：
+
+pip install k2-compose
+
+项目地址：[https://github.com/Tsui89/k2-compose](https://github.com/Tsui89/k2-compose)
+
 #### 特点
 相对于docker-compose，另外还支持：
 
