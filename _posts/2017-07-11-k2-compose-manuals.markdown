@@ -7,7 +7,7 @@ categories: jekyll update
 ---
 
 #### 简介
-k2-compose集成了docker-compose==1.7.1的基础功能，包括
+k2-compose集成了docker-compose==1.14.0的基础功能，包括
 
 	up、stop、start、restart、rm、logs、pull
 
