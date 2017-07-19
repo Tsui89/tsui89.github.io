@@ -80,13 +80,13 @@ services:
 ### 操作示例
 注
 
-  1. 以下k2-compose.yml就是“k2-compose文件示例”的内容。
-	2. 以下所有的命令（除了rm、logs、bash外）都可以接受具体的service名称，也可以缺省，默认是所有的service,如：k2-compose ps busybox1。
-	3. 同时service支持正则匹配，如：k2-compose ps busybox\* 等价于k2-compose ps busybox1 busybox2
-	4. k2-compose -f k2-compose.yml，-f接受配置文件，缺省默认是k2-compose.yml, 以下示例都省略-f k2-compose.yml。
-	5. Image-Status的值只有在镜像有变化时才会提示。
-	6. 可以通过DOCKER_HOST 修改默认的dockerHost。如果容器没有指定host，就会运行在这个dockerHost上。
-	7. 可以通过DOCKER_API_VERSION修改docker通信使用的api_version，如DOCKER_API_VERSION=1.23，DOCKER_API_VERSION=‘auto’
+1. 以下k2-compose.yml就是“k2-compose文件示例”的内容。
+2. 以下所有的命令（除了rm、logs、bash外）都可以接受具体的service名称，也可以缺省，默认是所有的service,如：k2-compose ps busybox1。
+3. 同时service支持正则匹配，如：k2-compose ps busybox\* 等价于k2-compose ps busybox1 busybox2
+4. k2-compose -f k2-compose.yml，-f接受配置文件，缺省默认是k2-compose.yml, 以下示例都省略-f k2-compose.yml。
+5. Image-Status的值只有在镜像有变化时才会提示。
+6. 可以通过DOCKER_HOST 修改默认的dockerHost。如果容器没有指定host，就会运行在这个dockerHost上。
+7. 可以通过DOCKER_API_VERSION修改docker通信使用的api_version，如DOCKER_API_VERSION=1.23，DOCKER_API_VERSION=‘auto’
 
 
 #### show
