@@ -25,3 +25,10 @@ categories: jekyll update
 <div>
 	<img src="https://tsui89.github.io/static/posts/container-network/calico.jpg"  height="450"/>
 </div>
+
+
+##### On 192.168.56.110 :
+
+<div>
+	<img src="https://tsui89.github.io/static/posts/container-network/calico-route.jpg"  height="200"/>
+</div>
