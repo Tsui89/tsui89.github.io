@@ -23,3 +23,8 @@ Mesos通过引入一层抽象，提供一种像管理单台大服务器般的方
 <div>
 	<img src="https://tsui89.github.io/static/posts/mesos/struct.jpg"  height="600"/>
 </div>
+
+* Mesos 从底层系统抽象化CPU、内存、磁盘资源，将多个服务器展现成一个大机器
+* Mesos slaves 以资源供给的形式宣告它有效的CPU、内存、磁盘资源
+* Mesos framework 由两个主要组件组成：scheduler、executor
+* 容器使用轻量级方法实现了进程间的资源隔离
