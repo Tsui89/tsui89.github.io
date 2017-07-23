@@ -9,7 +9,7 @@ categories: jekyll update
 ## k8s部署拓扑图
 
 <div>
-	<img src="https://tsui89.github.io/static/posts/dk8s/dk8s-topology.jpg" weight="800" height="400"/>
+	<img width="100%" src="https://tsui89.github.io/static/posts/dk8s/dk8s-topology.jpg"/>
 </div>
 
 

@@ -9,26 +9,26 @@ categories: jekyll update
 ## Swarm-overlay
 
 <div>
-	<img src="https://tsui89.github.io/static/posts/container-network/swarm.jpg"  height="500"/>
+	<img width="100%" src="https://tsui89.github.io/static/posts/container-network/swarm.jpg"/>
 </div>
 
 
 ## Flannel
 
 <div>
-	<img src="https://tsui89.github.io/static/posts/container-network/flannel.jpg"  height="520"/>
+	<img width="100%" src="https://tsui89.github.io/static/posts/container-network/flannel.jpg"/>
 </div>
 
 
 ## Calico
 
 <div>
-	<img src="https://tsui89.github.io/static/posts/container-network/calico.jpg"  height="450"/>
+	<img width="100%" src="https://tsui89.github.io/static/posts/container-network/calico.jpg" />
 </div>
 
 
 ##### On 192.168.56.110 :
 
 <div>
-	<img src="https://tsui89.github.io/static/posts/container-network/calico-route.jpg"  height="200"/>
+	<img width="100%" src="https://tsui89.github.io/static/posts/container-network/calico-route.jpg" />
 </div>

@@ -15,13 +15,13 @@ Mesos通过引入一层抽象，提供一种像管理单台大服务器般的方
 ##### 应用部署方式对比
 
 <div>
-	<img src="https://tsui89.github.io/static/posts/mesos/app.jpg"  height="300"/>
+	<img width="100%" src="https://tsui89.github.io/static/posts/mesos/app.jpg" />
 </div>
 
 ##### Mesos 架构图
 
 <div>
-	<img src="https://tsui89.github.io/static/posts/mesos/struct.jpg"  height="600"/>
+	<img width="100%" src="https://tsui89.github.io/static/posts/mesos/struct.jpg"/>
 </div>
 
 * Mesos 从底层系统抽象化CPU、内存、磁盘资源，将多个服务器展现成一个大机器
