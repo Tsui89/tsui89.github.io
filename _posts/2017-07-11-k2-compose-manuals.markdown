@@ -57,7 +57,7 @@ services:
     image: busybox:latest
     host: as
     health_check:
-      shell: echo "ok." && exit 1
+      shell: echo "err." && exit 1
       timeout: 10
     entrypoint: ["ping", "localhost"]
     s_depends_on:
