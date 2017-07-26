@@ -46,11 +46,11 @@ RC: 用于定义Pod副本的数量，在Master主机内，进程Replication Cont
 
 #### Service
 
-Service：一组提供相同服务的Pod对外的统一访问接口。
+Service：一组提供相同服务的Pod对内外的统一访问接口。
 * Pod ip是由docker0网络创建的，Service cluster ip是由kubernetes创建的。
 * Pod ip随Pod的创建、销毁而发生变化，cluster ip只要Service不删除，就不会变。
 * cluster ip可以供内部所有Pod进行连接。
-* cluster ip也可以供外部服务。
+* cluster ip也可以提供外部服务，方式：
   * NodePort
   * LoadBalancer
 
