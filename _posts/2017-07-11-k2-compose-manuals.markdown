@@ -21,7 +21,7 @@ k2-compose集成了docker-compose==1.14.0的基础功能，包括
 
 pip install k2-compose
 
-最新版本： sudo pip install k2-compose==0.0.9rc3 -i pypi.douban.com/simple
+最新版本： sudo pip install k2-compose==0.0.9rc4 -i pypi.douban.com/simple
 
 项目地址：[https://github.com/Tsui89/k2-compose](https://github.com/Tsui89/k2-compose)
 
@@ -100,13 +100,14 @@ show 有两种状态，
 
 ```
 root@minion1:~/k2-compose-0.0.4rc2/tests# k2-compose -f k2-compose.yml show
-┌k2-compose.yml──────────┬────────────┐
-│ host  │ dockerHost     │ services   │
-├───────┼────────────────┼────────────┤
-│ as    │ localhost:4243 │ - busybox2 │
-├───────┼────────────────┼────────────┤
-│ local │ 127.0.0.1:4243 │ - busybox1 │
-└───────┴────────────────┴────────────┘
+┌k2-compose.yml────────────┬────────────┐
+│ host    │ dockerHost     │ services   │
+├─────────┼────────────────┼────────────┤
+│ as      │ localhost:4243 │ - busybox2 │
+├─────────┼────────────────┼────────────┤
+│ default │ 127.0.0.1:4243 │ - busybox1 │
+└─────────┴────────────────┴────────────┘
+
 root@minion1:~/k2-compose-0.0.4rc2/tests# k2-compose -f k2-compose.yml show busybox1
 ┌busybox1──────┬─────────────────────────────┐
 │ entrypoint   │ - ping                      │
