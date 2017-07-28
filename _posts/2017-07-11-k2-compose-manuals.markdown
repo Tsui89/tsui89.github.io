@@ -6,7 +6,7 @@ date:   2017-07-11 01:01:19 +0800
 categories: jekyll update
 ---
 
-#### 最新版本0.0.9rc5
+#### 最新版本0.0.9rc6
 
 #### 简介
 k2-compose集成了docker-compose==1.14.0的基础功能，包括
@@ -23,7 +23,7 @@ k2-compose集成了docker-compose==1.14.0的基础功能，包括
 
 pip install k2-compose
 
-最新版本： sudo pip install k2-compose==0.0.9rc5 -i pypi.douban.com/simple
+最新版本： sudo pip install k2-compose==0.0.9rc6 -i pypi.douban.com/simple
 
 项目地址：[https://github.com/Tsui89/k2-compose](https://github.com/Tsui89/k2-compose)
 
