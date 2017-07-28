@@ -6,6 +6,8 @@ date:   2017-07-11 01:01:19 +0800
 categories: jekyll update
 ---
 
+#### 最新版本0.0.9rc5
+
 #### 简介
 k2-compose集成了docker-compose==1.14.0的基础功能，包括
 
