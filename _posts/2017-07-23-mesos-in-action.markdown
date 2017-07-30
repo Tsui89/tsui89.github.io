@@ -12,13 +12,13 @@ categories: jekyll update
 Mesos通过引入一层抽象，提供一种像管理单台大服务器般的方法来管理整个数据中心。
 而相对于hypervisor抽象cpu、内存、磁盘，之后以虚拟机形式提供，Mesos抽象资源之后，直接提供给应用。
 
-##### 应用部署方式对比
+#### 应用部署方式对比
 
 <div>
 	<img width="100%" src="https://tsui89.github.io/static/posts/mesos/app.jpg" />
 </div>
 
-##### Mesos 架构图
+#### Mesos 架构图
 
 <div>
 	<img width="100%" src="https://tsui89.github.io/static/posts/mesos/struct.jpg"/>
@@ -28,3 +28,9 @@ Mesos通过引入一层抽象，提供一种像管理单台大服务器般的方
 * Mesos slaves 以资源供给的形式宣告它有效的CPU、内存、磁盘资源
 * Mesos framework 由两个主要组件组成：scheduler、executor
 * 容器使用轻量级方法实现了进程间的资源隔离
+
+#### Mesos 资源调度
+
+<div>
+	<img width="100%" src="https://tsui89.github.io/static/posts/mesos/resource.jpg"/>
+</div>
