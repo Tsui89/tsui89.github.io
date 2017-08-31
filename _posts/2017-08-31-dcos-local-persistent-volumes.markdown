@@ -1,3 +1,7 @@
+---
+title:  "DC/OS Local Persistent Volumes"
+---
+
 ### MESOS 本地持久化存储类型：
 
 1. root，最基本的存储资源，默认是mesos agent工作路径的存储资源。
