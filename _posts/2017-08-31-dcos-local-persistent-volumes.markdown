@@ -1,4 +1,4 @@
-#### MESOS 本地持久化存储类型：
+### MESOS 本地持久化存储类型：
 
 1. root，最基本的存储资源，默认是mesos agent工作路径的存储资源。
 
@@ -66,7 +66,7 @@
         ]
     ```
 
-#### Marathon docker应用使用local persistent volume示例
+### Marathon docker应用使用local persistent volume示例
 
 操作流程：
 
@@ -76,7 +76,7 @@
     4. 重启应用，查看tmp.txt
     5. 查看应用的本地存储目录
 
-##### root
+#### root
 
 创建marathon 应用
 ```json
@@ -183,7 +183,7 @@ marathon 应用
 
 6. agent 重新resize path resource，应用启动失败
 
-##### mount
+#### mount
 
 marathon 应用
 
@@ -234,10 +234,10 @@ marathon 应用
 
 2. 主机存储目录/dcos/volume0/
 
-3. 重启应用数据不变
+3. 重启应用数据存在
 
-4. agent重启，数据不变
+4. agent重启，数据存在
 
 5. 应用销毁，数据消失
 
-6. agent 重新resize path resource，应用启动失败
+6. agent 重新resize mount resource，应用启动失败
