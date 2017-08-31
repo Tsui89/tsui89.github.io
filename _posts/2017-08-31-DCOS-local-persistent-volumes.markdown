@@ -249,6 +249,8 @@ marathon 应用
 
 #### 资料引用
 
-[mesos multiple-disk](http://mesos.apache.org/documentation/latest/multiple-disk/)
+[mesos multiple-disk](http://mesos.apache.org/documentation/latest/multiple-disk)
+
 [dcos persistent volume](https://dcos.io/docs/1.9/storage/persistent-volume/)
+
 [marathon persistent volumes](https://mesosphere.github.io/marathon/docs/persistent-volumes.html)
