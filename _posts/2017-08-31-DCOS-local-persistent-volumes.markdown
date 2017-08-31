@@ -50,7 +50,7 @@ title:  "DC/OS Local Persistent Volumes"
 
     * 应用独占式使用。
 
-    * 在创建应用时，应用使用整个磁盘资源，允许有预存在的数据文件/目录，但是当marathon销毁应用时，会删除所有数据
+    * 在创建应用时，应用使用整个磁盘资源，允许有预存在的数据文件/目录，但是当mesos销毁应用时，会删除所有数据
 
     * 如 mount /dev/sdb /mnt/data, agent上报存储磁盘资源/mnt/data,使用大小2G。
 
@@ -245,3 +245,10 @@ marathon 应用
 5. 应用销毁，数据消失
 
 6. agent 重新resize mount resource，应用启动失败
+
+
+#### 资料引用
+
+[mesos multiple-disk](http://mesos.apache.org/documentation/latest/multiple-disk/)
+[dcos persistent volume](https://dcos.io/docs/1.9/storage/persistent-volume/)
+[marathon persistent volumes](https://mesosphere.github.io/marathon/docs/persistent-volumes.html)
