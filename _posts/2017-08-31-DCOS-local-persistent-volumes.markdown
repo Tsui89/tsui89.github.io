@@ -246,6 +246,37 @@ marathon 应用
 
 6. agent 重新resize mount resource，应用启动失败
 
+#### hostPath
+
+```json
+{
+    "type": "DOCKER",
+    "volumes": [
+        {
+            "mode": "RO",
+            "container_path": "/etc/localtime",
+            "host_path": "/etc/localtime"
+        },
+        {
+            "mode": "RW",
+            "container_path": "/tmp",
+            "host_path": "/tmp"
+        }
+    ],
+    "docker": {
+        "image": "busybox",
+        "network": "HOST",
+        "privileged": false,
+        "parameters": [
+            {
+                "key": "label",
+                "value": "MESOS_TASK_ID=cwc_test-local-path.75db9606-97d6-11e7-aaa2-36ce7409b167"
+            }
+        ],
+        "force_pull_image": false
+    }
+}
+```
 
 #### 资料引用
 
