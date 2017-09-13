@@ -51,14 +51,47 @@ Host Volume，将本地的目录／文件挂载到容器。这种存储类型下
 	<img width="100%" src="https://tsui89.github.io/static/posts/dcos/eg1-constraints.png" />
 </div>
 
-网络配置，内部使用artifact-store.microservices.marathon.mesos访问
+网络配置，内部使用域名artifact-store.microservices.marathon.mesos访问
 
 <div>
 	<img width="100%" src="https://tsui89.github.io/static/posts/dcos/eg1-network.png" />
 </div>
 
-挂载本地路径，指的目的主机之后，所有的数据文件都放在这个主机路径下
+挂载本地路径，使用的宿主机绝对路径，所有的artifact文件都需要上传到这个宿主机路径下
 
 <div>
 	<img width="100%" src="https://tsui89.github.io/static/posts/dcos/eg1-volume.png" />
+</div>
+
+
+##### 部署bind9 应用
+
+首先将bind9使用的配置文件named.conf bind9.db.tar.gz(artifact下载之后默认会解压，我们真正使用也是解压之后的db目录)上传到/artifact-store目录
+```
+[root@dcos-cloud1 ~]# ls /artifact-store/
+bind9.db.tar.gz  named.conf
+```
+
+服务配置
+
+<div>
+	<img width="100%" src="https://tsui89.github.io/static/posts/dcos/eg2-service.png" />
+</div>
+
+设置部署主机,设置artifact下载url
+
+<div>
+	<img width="100%" src="https://tsui89.github.io/static/posts/dcos/eg2-artifact.png" />
+</div>
+
+网络配置
+
+<div>
+	<img width="100%" src="https://tsui89.github.io/static/posts/dcos/eg2-network.png" />
+</div>
+
+挂载本地路径，这个地方使用的是相对路径（应用容器的存储跟目录），artifact下载之后就放在应用容器根目录下，所以直接挂载named.conf、db
+
+<div>
+	<img width="100%" src="https://tsui89.github.io/static/posts/dcos/eg2-volume.png" />
 </div>
