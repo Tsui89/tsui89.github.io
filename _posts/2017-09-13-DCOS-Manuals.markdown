@@ -90,8 +90,10 @@ bind9.db.tar.gz  named.conf
 	<img width="100%" src="https://tsui89.github.io/static/posts/dcos/eg2-network.png" />
 </div>
 
-挂载本地路径，这个地方使用的是相对路径（应用容器的存储跟目录），artifact下载之后就放在应用容器根目录下，所以直接挂载named.conf、db
+挂载本地路径，这个地方使用的是相对路径（应用容器的存储根目录），artifact下载之后就放在应用容器根目录下，所以直接挂载named.conf、db
 
 <div>
 	<img width="100%" src="https://tsui89.github.io/static/posts/dcos/eg2-volume.png" />
 </div>
+
+然后run service
