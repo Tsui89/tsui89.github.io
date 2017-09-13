@@ -246,7 +246,7 @@ marathon 应用
 
 6. agent 重新resize mount resource，应用启动失败
 
-#### hostPath
+#### hostPath 使用宿主机本地目录
 
 ```json
 {
