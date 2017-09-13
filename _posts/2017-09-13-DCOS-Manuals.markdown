@@ -34,9 +34,8 @@ Host Volume，将本地的目录／文件挂载到容器。这种存储类型下
 2. 应用的配置页面，设置artifact，下载文件/tar包的url
 3. 存储配置页面，存储类型选Host Volume,将文件/目录名挂载到容器内路径
 
-#### 示例 bind9外部挂载named.conf、db目录
 
-##### 部署artifact-store
+#### 示例一 部署artifact-store，Virtual Network + Host Volume
 
 
 服务配置
@@ -63,8 +62,10 @@ Host Volume，将本地的目录／文件挂载到容器。这种存储类型下
 	<img width="100%" src="https://tsui89.github.io/static/posts/dcos/eg1-volume.png" />
 </div>
 
+然后run service
 
-##### 部署bind9 应用
+
+#### 示例二 部署bind9 应用，Host Network + Host Volume
 
 首先将bind9使用的配置文件named.conf bind9.db.tar.gz(artifact下载之后默认会解压，我们真正使用也是解压之后的db目录)上传到/artifact-store目录
 ```
@@ -97,3 +98,5 @@ bind9.db.tar.gz  named.conf
 </div>
 
 然后run service
+
+#### 示例三 部署 influxdb 应用，Host Network + Path Volume
