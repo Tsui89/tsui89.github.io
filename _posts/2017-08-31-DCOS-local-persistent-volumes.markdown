@@ -72,6 +72,8 @@ title:  "DC/OS Local Persistent Volumes"
 
 ### Marathon docker应用使用local persistent volume示例
 
+Marathon对于这几种Persistent Volume的使用区分，主要是通过persistent.type来控制的。
+
 操作流程：
 
     1. marathon创建应用
@@ -246,7 +248,7 @@ marathon 应用
 
 6. agent 重新resize mount resource，应用启动失败
 
-#### hostPath 使用宿主机本地目录
+### Marathon 使用Host Volume
 
 ```json
 {
@@ -278,7 +280,7 @@ marathon 应用
 }
 ```
 
-#### 资料引用
+#### 资料检索
 
 [mesos multiple-disk](http://mesos.apache.org/documentation/latest/multiple-disk)
 
