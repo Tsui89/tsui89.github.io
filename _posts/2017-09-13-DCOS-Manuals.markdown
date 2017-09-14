@@ -7,7 +7,7 @@ DC/OS集群中，网络分为Host、Bridge、Virtual Network。
 应用的本地存储是通过挂载的形式来实现的，挂载分为Persistent Volume和Host Volume。
 而Persistent Volume又分为root、path、mount类型，Host Volume相当于docker volume mount。详细介绍可见[DC/OS-local-persistent-volumes](https://tsui89.github.io/2017/08/31/DCOS-local-persistent-volumes.html).
 
-##### 网络
+#### 网络
 
 普通应用网络模式选择Host、Bridge、Virtual Network都可以，外部访问可以设置端口映射。
 
@@ -17,7 +17,7 @@ DC/OS集群使用mesos-dns进行服务解析，应用服务名称定义：
 * 应用名.应用组名.marathon.mesos 获取的是应用容器内部ip，如果使用Host模式，就是宿主机ip
 * 应用名.应用组名.marathon.slave.mesos 获取的是应用的宿主机ip
 
-##### 存储
+#### 存储
 
 DC/OS集群本地存储
 
@@ -39,7 +39,7 @@ Host Volume，将本地的目录／文件挂载到容器。这种存储类型下
 3. 存储配置页面，存储类型选Host Volume,将文件/目录名挂载到容器内路径
 
 
-#### 示例一 部署artifact-store，Virtual Network + Host Volume
+### 示例一 部署artifact-store，Virtual Network + Host Volume
 
 
 服务配置
@@ -69,7 +69,7 @@ Host Volume，将本地的目录／文件挂载到容器。这种存储类型下
 然后run service
 
 
-#### 示例二 部署bind9 应用，Host Network + Host Volume
+### 示例二 部署bind9 应用，Host Network + Host Volume
 
 首先将bind9使用的配置文件named.conf bind9.db.tar.gz(artifact下载之后默认会解压，我们真正使用也是解压之后的db目录)上传到/artifact-store目录
 ```
@@ -103,7 +103,7 @@ bind9.db.tar.gz  named.conf
 
 然后run service
 
-#### 示例三 部署 test-root 应用，Host Network + Root Volume + Host Volume
+### 示例三 部署 test-root 应用，Host Network + Root Volume + Host Volume
 
 服务配置
 
@@ -124,7 +124,7 @@ bind9.db.tar.gz  named.conf
 </div>
 
 
-#### 示例四 部署 influxdb 应用，Host Network + Path Volume + Host Volume
+### 示例四 部署 influxdb 应用，Host Network + Path Volume + Host Volume
 
 DC/OS 默认的Persistent Volume类型是root，修改类型，需要打开右上方的JSON EDITER。
 修改persistent.type = "path"
