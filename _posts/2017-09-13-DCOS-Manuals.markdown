@@ -117,7 +117,7 @@ bind9.db.tar.gz  named.conf
 	<img width="100%" src="https://tsui89.github.io/static/posts/dcos/eg3-network.png" />
 </div>
 
-挂载Persistent Volume默认类型root到容器跟目录下的mydata，然后将mydata挂载到容器/tmp目录下
+挂载Persistent Volume默认root类型到容器根目录下的mydata，然后将mydata挂载到容器/tmp目录下
 
 <div>
 	<img width="100%" src="https://tsui89.github.io/static/posts/dcos/eg3-volume.png" />
