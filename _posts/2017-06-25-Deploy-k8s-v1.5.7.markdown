@@ -273,23 +273,7 @@ mkdir /var/lib/kubelet
 cp -r dk8s/master/calico/cni /opt/
 
 mkdir -p /etc/cni/net.d
-cat >/etc/cni/net.d/10-calico.conf <<EOF
-{
-    "name": "calico-k8s-network",
-    "type": "calico",
-    "etcd_endpoints": "http://<ETCD_IP>:<ETCD_PORT>",
-    "log_level": "info",
-    "ipam": {
-        "type": "calico-ipam"
-    },
-    "policy": {
-        "type": "k8s"
-    },
-    "kubernetes": {
-        "kubeconfig": "</PATH/TO/KUBECONFIG>"
-    }
-}
-EOF
+
 
 systemctl daemon-reload
 systemctl enable kubelet
@@ -327,7 +311,7 @@ WantedBy=multi-user.target
 - --master=http://\<apiserver ip>:\<port>
 - --bind-address=本机IP
 - --hostname-owveride=本机IP
-- --cluster-cidr 必须与 kube-apiserver 的 --service-cluster-ip-range 选项值一致；kube-proxy 根据 --cluster-cidr 判断集群内部和外部流量，指定 --cluster-cidr 或 --masquerade-all 选项后 kube-proxy 才会对访问 Service IP 的请求做 SNAT；
+- --cluster-cidr kube-proxy 根据 --cluster-cidr 判断集群内部和外部流量，指定 --cluster-cidr 或 --masquerade-all 选项后 kube-proxy 才会对访问 Service IP 的请求做 SNAT；
 
 ```
 mkdir /var/lib/kube-proxy
